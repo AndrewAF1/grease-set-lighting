@@ -5,7 +5,7 @@
 
 const int RED_PIN = 3;
 const int GREEN_PIN = 5;
-const int BLUE_PIN = 10;
+const int BLUE_PIN = 9;
 
 int redVal = 0;
 int greenVal = 0;
@@ -38,13 +38,14 @@ void setup() {
 void loop(){
   if (Serial.available() > 0) {
     serialBytes = Serial.readString();
+    serialBytes.trim();
     
     //Serial.print();
 
     Serial.println(serialBytes);
 
     
-    if (serialBytes.substring(0, 5) == "RGB: " && serialBytes.length() == 17){
+    if (serialBytes.substring(0, 5) == "RGB: " && serialBytes.length() == 16){
        redVal = serialBytes.substring(5, 8).toInt();
        greenVal = serialBytes.substring(9, 12).toInt();
        blueVal = serialBytes.substring(13, 16).toInt();
