@@ -1,19 +1,15 @@
-import serial as s
+import LED_commands as com
 import color_consts as cc
 import random as r
 import time
 
-ser = s.Serial('/dev/ttyACM0', 9600)
 
-ser.write(b"test")
-
-
-def manual():
+def manual(serial_interface):
     #wait for user input and repeat
     while(True):
 
         usr_red, usr_green, usr_blue = collect_usr_input()
-        sendRGB((usr_red, usr_green, usr_blue))
+        sendRGB(serial_interface, (usr_red, usr_green, usr_blue))
 
         #if (input() == "red"):
             #sendRGB(cc.RED)
@@ -27,7 +23,7 @@ def manual():
 
 
 
-def sendRGB(rgb):
+def sendRGB(ser_interface, rgb):
 
     #convert numbers to three-digit format
     r, g, b = str(rgb[0]), str(rgb[1]), str(rgb[2])
@@ -39,7 +35,7 @@ def sendRGB(rgb):
     while len(b) < 3:
         b = "0" + b
 
-    ser.write(("RGB: " + r + " " + g + " " + b).encode())
+    ser_interface.write(("1RGB: " + r + " " + g + " " + b + "\n").encode())
     print("sent red " + r + ", green " + g + " and blue " + b)
 
 
@@ -58,6 +54,3 @@ def collect_usr_input():
             break
 
     return usr_red, usr_green, usr_blue
-
-
-manual()
