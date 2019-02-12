@@ -16,7 +16,6 @@ String serialBytes = "RGB: 000 000 000";
 
 // the setup function runs once when you press reset or power the board
 void setup() {
-  // initialize digital pin LED_BUILTIN as an output.
   pinMode(3, OUTPUT);
 
   Serial.begin(9600);

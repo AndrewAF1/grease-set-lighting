@@ -11,18 +11,19 @@ ser.write(b"test")
 def manual():
     #wait for user input and repeat
     while(True):
-        #usr_red, usr_green, usr_blue = collect_usr_input()
-        #sendRGB((usr_red, usr_green, usr_blue))
+
+        usr_red, usr_green, usr_blue = collect_usr_input()
+        sendRGB((usr_red, usr_green, usr_blue))
 
         #if (input() == "red"):
             #sendRGB(cc.RED)
-        red = r.randint(0, 255)
-        green = r.randint(0, 150)
-        blue = r.randint(0, 200)
+        #red = r.randint(0, 255)
+        #green = r.randint(0, 150)
+        #blue = r.randint(0, 200)
 
-        sendRGB((red, green, blue))
+        #sendRGB((red, green, blue))
 
-        time.sleep(2)
+        #time.sleep(2)
 
 
 
@@ -38,7 +39,7 @@ def sendRGB(rgb):
     while len(b) < 3:
         b = "0" + b
 
-    ser.write(("RGB: " + r + " " + b + " " + g).encode())
+    ser.write(("RGB: " + r + " " + g + " " + b).encode())
     print("sent red " + r + ", green " + g + " and blue " + b)
 
 
