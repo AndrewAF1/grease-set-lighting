@@ -5,7 +5,7 @@
 
 const int RED_PIN = 3;
 const int GREEN_PIN = 5;
-const int BLUE_PIN = 9;
+const int BLUE_PIN = 6;
 
 int redVal = 0;
 int greenVal = 0;
