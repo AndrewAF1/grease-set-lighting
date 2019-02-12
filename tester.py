@@ -9,5 +9,6 @@ ser = s.Serial('/dev/ttyACM0', 9600)
 ser.write(b"test")
 
 
-lc.flash(ser, 100, 1.1, cc.RED)
-#u.manual(ser)
+#lc.flash(ser, 1, cc.BLUE, 100, 500)
+#lc.fadeUp(ser, 1, 150, 5, (100, 100, 100))
+u.manual(ser)

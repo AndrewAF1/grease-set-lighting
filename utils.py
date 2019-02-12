@@ -1,4 +1,4 @@
-import LED_commands as com
+import LED_commands as com5
 import color_consts as cc
 import random as r
 import time
@@ -9,18 +9,7 @@ def manual(serial_interface):
     while(True):
 
         usr_red, usr_green, usr_blue = collect_usr_input()
-        sendRGB(serial_interface, (usr_red, usr_green, usr_blue))
-
-        #if (input() == "red"):
-            #sendRGB(cc.RED)
-        #red = r.randint(0, 255)
-        #green = r.randint(0, 150)
-        #blue = r.randint(0, 200)
-
-        #sendRGB((red, green, blue))
-
-        #time.sleep(2)
-
+        sendRGB(serial_interface, 1, (usr_red, usr_green, usr_blue))
 
 
 def sendRGB(ser_interface, strip_num, rgb):

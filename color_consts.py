@@ -1,8 +1,14 @@
 #color_consts =
 
-OFF = (0, 0, 0)
+OOF = (0, 0, 0)
 RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
 WHITE = (255, 255, 255)
-ORANGE = (255, 10, 0)
+ORANGE = (255, 20, 0)
+LIGHT_BLUE = (0, 255, 230)
+PINK = (255, 0, 105)
+PURPLE = (255, 0, 255)
+TURQUOISE = (0, 255, 75)
+YELLOW = (255, 75, 0)
+LIME_GREEN = (235, 255, 0)
