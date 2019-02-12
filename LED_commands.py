@@ -3,12 +3,12 @@ import time as t
 import utils as u
 
 #flash at interval
-def flash(ser_interface, duration, interval, color):
+def flash(ser_interface, strip_num, duration, interval, color):
     curTime = 0
     while curTime<duration:
-        u.sendRGB(ser_interface, color)
+        u.sendRGB(ser_interface, strip_num, color)
         t.sleep(interval)
-        u.sendRGB(ser_interface, cc.OFF)
+        u.sendRGB(ser_interface, strip_num, cc.OFF)
         t.sleep(interval)
         curTime+=interval*2;
 

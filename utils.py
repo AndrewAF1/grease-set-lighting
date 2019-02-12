@@ -23,7 +23,7 @@ def manual(serial_interface):
 
 
 
-def sendRGB(ser_interface, rgb):
+def sendRGB(ser_interface, strip_num, rgb):
 
     #convert numbers to three-digit format
     r, g, b = str(rgb[0]), str(rgb[1]), str(rgb[2])
@@ -35,7 +35,12 @@ def sendRGB(ser_interface, rgb):
     while len(b) < 3:
         b = "0" + b
 
-    ser_interface.write(("1RGB: " + r + " " + g + " " + b + "\n").encode())
+
+    if strip_num == 1:
+        ser_interface.write(("1RGB: " + r + " " + g + " " + b + "\n").encode())
+    if strip_num == 2:
+        ser_interface.write(("2RGB: " + r + " " + g + " " + b + "\n").encode())
+
     print("sent red " + r + ", green " + g + " and blue " + b)
 
 
