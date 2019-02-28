@@ -22,16 +22,13 @@ def flash(ser_interface, strip_num, rgb, duration, interval):
     while len(interval) < 4:
         interval = "0" + interval
 
-
-    toSend = "BLK: " + r + " " + g + " " + b + " " + duration + " " + interval + "\n"
-
     if strip_num == 1:
-        toSend = "1"+toSend
+        toSend = "1BLK: " + r + " " + g + " " + b + " " + duration + " " + interval + "\n"
     if strip_num == 2:
-        toSend = "2"+toSend
+        toSend = "2BLK: " + r + " " + g + " " + b + " " + duration + " " + interval + "\n"
 
-    ser_interface.write(toSend.strip().encode())
-    
+
+    ser_interface.write(toSend.encode())
     print(toSend)
 
     print("flashing red " + r + ", green " + g + " and blue " + b + " for duration " + duration + " seconds at interval " + interval + " milliseconds.")

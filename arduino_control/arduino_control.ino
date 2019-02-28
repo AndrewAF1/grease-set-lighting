@@ -76,8 +76,7 @@ void writeRGB(int num, int red, int green, int blue){
 }
 
 void blinkStep(){
-   oneCurrentMillis = millis();
-  
+  oneCurrentMillis = millis();
   if (sIsA and serialText.substring(1, 6) == "BLK: "){
     oneLooping = true;
     oneStart = millis();
@@ -143,5 +142,7 @@ void loop(){
     
   }
 
-  blinkStep(); 
+  blinkStep();
+
+   //sIsA = false;
 }
