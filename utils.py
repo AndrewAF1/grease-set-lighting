@@ -8,12 +8,11 @@ def manual(serial_interface):
     #wait for user input and repeat
     while(True):
 
-        usr_red, usr_green, usr_blue = collect_usr_input()
-        sendRGB(serial_interface, 1, (usr_red, usr_green, usr_blue))
+        usr_strip, usr_red, usr_green, usr_blue = collect_usr_input()
+        sendRGB(serial_interface, usr_strip, (usr_red, usr_green, usr_blue))
 
 
 def sendRGB(ser_interface, strip_num, rgb):
-
     #convert numbers to three-digit format
     r, g, b = str(rgb[0]), str(rgb[1]), str(rgb[2])
 
@@ -25,15 +24,20 @@ def sendRGB(ser_interface, strip_num, rgb):
         b = "0" + b
 
 
-    if strip_num == 1:
+    if int(strip_num) == 1:
         ser_interface.write(("1RGB: " + r + " " + g + " " + b + "\n").encode())
-    if strip_num == 2:
+    if int(strip_num) == 2:
+        print("yeet")
         ser_interface.write(("2RGB: " + r + " " + g + " " + b + "\n").encode())
 
     print("sent red " + r + ", green " + g + " and blue " + b)
 
 
 def collect_usr_input():
+    while True:
+        usr_strip = input("Strip 1 or 2: ")
+        if int(usr_strip) == 1 or int(usr_strip) == 2:
+            break
     while True:
         usr_red = input("red: ")
         if int(usr_red) <= 255 and int(usr_red) >= 0:
@@ -47,4 +51,4 @@ def collect_usr_input():
         if int(usr_blue) <= 255 and int(usr_blue) >= 0:
             break
 
-    return usr_red, usr_green, usr_blue
+    return usr_strip, usr_red, usr_green, usr_blue

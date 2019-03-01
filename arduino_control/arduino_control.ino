@@ -7,9 +7,9 @@ const int one_RED_PIN = 3;
 const int one_GREEN_PIN = 5;
 const int one_BLUE_PIN = 6;
 
-const int two_RED_PIN = 3;
-const int two_GREEN_PIN = 5;
-const int two_BLUE_PIN = 6;
+const int two_RED_PIN = 9;
+const int two_GREEN_PIN = 10;
+const int two_BLUE_PIN = 11;
 
 int lNum;
 
@@ -132,7 +132,7 @@ void loop(){
 
 
     //set color
-    if (serialText.substring(0, 6) == "1RGB: " && serialText.length() == 17){
+    if (serialText.substring(1, 6) == "RGB: " && serialText.length() == 17){
       writeRGB(lNum, redVal, greenVal, blueVal);
     }   
 
