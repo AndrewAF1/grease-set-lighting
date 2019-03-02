@@ -27,7 +27,6 @@ def sendRGB(ser_interface, strip_num, rgb):
     if int(strip_num) == 1:
         ser_interface.write(("1RGB: " + r + " " + g + " " + b + "\n").encode())
     if int(strip_num) == 2:
-        print("yeet")
         ser_interface.write(("2RGB: " + r + " " + g + " " + b + "\n").encode())
 
     print("sent red " + r + ", green " + g + " and blue " + b)

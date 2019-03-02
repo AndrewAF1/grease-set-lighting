@@ -19,6 +19,7 @@ int blueVal = 0;
 
 bool sIsA = false;
 
+int num;
 
 bool oneLooping;
 bool oneOn;
@@ -28,6 +29,15 @@ int oneRed, oneGreen, oneBlue;
 int oneDuration;
 long onePrevMillis;
 long oneCurrentMillis;
+
+bool twoLooping;
+bool twoOn;
+long twoStart;
+int twoInterval;
+int twoRed, twoGreen, twoBlue;
+int twoDuration;
+long twoPrevMillis;
+long twoCurrentMillis;
 
 
 
@@ -64,20 +74,22 @@ void writeRGB(int num, int red, int green, int blue){
 
   if (num==2){
     //red
-   analogWrite(two_RED_PIN, redVal);
+   analogWrite(two_RED_PIN, red);
 
    //green
-   analogWrite(two_GREEN_PIN, greenVal);
+   analogWrite(two_GREEN_PIN, green);
 
    //blue
-   analogWrite(two_BLUE_PIN, blueVal);
+   analogWrite(two_BLUE_PIN, blue);
   }
    
 }
 
 void blinkStep(){
-  oneCurrentMillis = millis();
-  if (sIsA and serialText.substring(1, 6) == "BLK: "){
+  num = serialText.substring(0,1).toInt();
+  
+   oneCurrentMillis = millis();
+  if (sIsA and num == 1 and serialText.substring(1, 6) == "BLK: "){
     oneLooping = true;
     oneStart = millis();
     oneDuration = serialText.substring(18, 21).toInt()*1000;
@@ -107,7 +119,42 @@ void blinkStep(){
       writeRGB(1, 0, 0, 0);
     }
     oneOn = !oneOn;
+    
   }
+
+  twoCurrentMillis = millis();
+  if (sIsA and num == 2 and serialText.substring(1, 6) == "BLK: "){
+    twoLooping = true;
+    twoStart = millis();
+    twoDuration = serialText.substring(18, 21).toInt()*1000;
+    twoInterval = serialText.substring(22, 28).toInt();
+
+    
+    twoRed = redVal;
+    twoGreen = greenVal;
+    twoBlue = blueVal;
+
+    writeRGB(2, 0, 0, 0);
+    twoOn = false;
+
+  }
+
+  if (twoLooping and millis()-twoStart >= twoDuration){
+    writeRGB(2, 0, 0, 0);
+    twoLooping = false;
+  }
+  else if (twoLooping and (twoCurrentMillis-twoPrevMillis >= twoInterval)){
+
+    twoPrevMillis = twoCurrentMillis;
+    if (!twoOn){
+      writeRGB(2, twoRed, twoGreen, twoBlue);
+    }
+    else if (twoOn){
+      writeRGB(2, 0, 0, 0);
+    }
+    twoOn = !twoOn;
+  }
+  
 }
 
 
