@@ -9,8 +9,9 @@ import serial as s
 
 #ser0 = s.Serial('/dev/ttyACM0', 9600)
 #ser1 = s.Serial('/dev/ttyACM1', 9600)
+ser2 = s.Serial('/dev/ttyACM2', 9600)
 #u.manual(ser0)
-#u.manual(ser1)
+u.manual(ser2)
 
 #lc.flash(ser, 1, cc.GREEN, 100, 500)
 #s_num = int(input("Arduino number: "))
@@ -40,14 +41,26 @@ import serial as s
 #siezure mode
 #while True:
 
+#    input("siezure")
+#    lc.flash(ser0, 1, r.choice(cc.COLORS), 100, 50)
+#    lc.flash(ser1, 1, r.choice(cc.COLORS), 100, 50)
+#    lc.flash(ser2, 1, r.choice(cc.COLORS), 100, 50)
+#
+#    sleep(2)
 
-    #lc.flash(ser0, 1, r.choice(cc.COLORS), 100, 100)#
-    #lc.flash(ser1, 1, r.choice(cc.COLORS), 100, 100)
+#    lc.flash(ser0, 2, r.choice(cc.COLORS), 100, 50)
+#    lc.flash(ser1, 2, r.choice(cc.COLORS), 100, 50)
+#    lc.flash(ser2, 2, r.choice(cc.COLORS), 100, 50)
 
-    #sleep(2)
+    #input("stop oh god please")
+    #u.sendRGB(ser0, 1, cc.OFF)
+    #u.sendRGB(ser1, 1, cc.OFF)
+    #u.sendRGB(ser2, 1, cc.OFF)
+    #sleep(1.1)
+    #u.sendRGB(ser0, 2, cc.OFF)
+    #u.sendRGB(ser1, 2, cc.OFF)
+    #u.sendRGB(ser2, 2, cc.OFF)
 
-    #lc.flash(ser0, 2, r.choice(cc.COLORS), 100, 100)
-    #lc.flash(ser1, 2, r.choice(cc.COLORS), 100, 100)
 
 
 input()
