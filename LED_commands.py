@@ -32,20 +32,3 @@ def flash(ser_interface, strip_num, rgb, duration, interval):
     print(toSend)
 
     print("flashing red " + r + ", green " + g + " and blue " + b + " for duration " + duration + " seconds at interval " + interval + " milliseconds.")
-
-#fade up
-def fadeUp(ser_interface, strip_num, intensitydiff, duration, color):
-    pass
-
-#fade down
-
-
-
-
-
-
-
-
-# color modifiers
-
-# adjust brightness by percent
