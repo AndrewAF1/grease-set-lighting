@@ -3,13 +3,12 @@ import time as t
 import utils as u
 import time as t
 
-#flash at interval
-#duration in seconds, interval in milliseconds
+# flash at interval
+# duration in seconds, interval in milliseconds
 def flash(ser_interface, strip_num, rgb, duration, interval):
-    #convert numbers to three-digit format
+    # convert numbers to three-digit format
     r, g, b = str(rgb[0]), str(rgb[1]), str(rgb[2])
     duration, interval = str(duration), str(interval)
-
 
     while len(r) < 3:
         r = "0" + r
@@ -23,12 +22,27 @@ def flash(ser_interface, strip_num, rgb, duration, interval):
         interval = "0" + interval
 
     if strip_num == 1:
-        toSend = "1BLK: " + r + " " + g + " " + b + " " + duration + " " + interval + "\n"
+        toSend = (
+            "1BLK: " + r + " " + g + " " + b + " " + duration + " " + interval + "\n"
+        )
     if strip_num == 2:
-        toSend = "2BLK: " + r + " " + g + " " + b + " " + duration + " " + interval + "\n"
-
+        toSend = (
+            "2BLK: " + r + " " + g + " " + b + " " + duration + " " + interval + "\n"
+        )
 
     ser_interface.write(toSend.encode())
     print(toSend)
 
-    print("flashing red " + r + ", green " + g + " and blue " + b + " for duration " + duration + " seconds at interval " + interval + " milliseconds.")
+    print(
+        "flashing red "
+        + r
+        + ", green "
+        + g
+        + " and blue "
+        + b
+        + " for duration "
+        + duration
+        + " seconds at interval "
+        + interval
+        + " milliseconds."
+    )

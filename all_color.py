@@ -3,8 +3,9 @@ import utils as u
 from time import sleep
 import serial as s
 
-ser0 = s.Serial('/dev/ttyACM0', 9600)
-ser1 = s.Serial('/dev/ttyACM1', 9600)
+ser0 = s.Serial("/dev/ttyACM0", 9600)
+ser1 = s.Serial("/dev/ttyACM1", 9600)
+
 
 def all_blue():
     input("go")
@@ -14,6 +15,7 @@ def all_blue():
     u.sendRGB(ser0, 1, cc.LIGHT_BLUE)
     u.sendRGB(ser1, 1, cc.LIGHT_BLUE)
 
+
 def all_red():
     input("go")
     u.sendRGB(ser0, 2, cc.RED)
@@ -21,6 +23,7 @@ def all_red():
     sleep(1.1)
     u.sendRGB(ser0, 1, cc.RED)
     u.sendRGB(ser1, 1, cc.RED)
+
 
 def all_green():
     input("go")
@@ -30,6 +33,7 @@ def all_green():
     u.sendRGB(ser0, 1, cc.GREEN)
     u.sendRGB(ser1, 1, cc.GREEN)
 
+
 def all_purple():
     input("go")
     u.sendRGB(ser0, 2, cc.PURPLE)
@@ -37,6 +41,7 @@ def all_purple():
     sleep(1.1)
     u.sendRGB(ser0, 1, cc.PURPLE)
     u.sendRGB(ser1, 1, cc.PURPLE)
+
 
 def all_orange():
     input("go")
@@ -46,6 +51,7 @@ def all_orange():
     u.sendRGB(ser0, 1, cc.RED_ORANGE)
     u.sendRGB(ser1, 1, cc.RED_ORANGE)
 
+
 def all_off():
     input("go")
     u.sendRGB(ser0, 2, cc.OFF)
@@ -53,6 +59,7 @@ def all_off():
     sleep(1.1)
     u.sendRGB(ser0, 1, cc.OFF)
     u.sendRGB(ser1, 1, cc.OFF)
+
 
 while True:
     print("Press 0: Off")

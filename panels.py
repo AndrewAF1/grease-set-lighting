@@ -7,7 +7,7 @@ import random as r
 import serial as s
 
 
-ser2 = s.Serial('/dev/ttyACM2', 9600)
+ser2 = s.Serial("/dev/ttyACM2", 9600)
 
 while True:
     input("go")
