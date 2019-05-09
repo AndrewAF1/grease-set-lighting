@@ -5,15 +5,15 @@ import time
 
 
 def manual(serial_interface):
-    #wait for user input and repeat
-    while(True):
+    # wait for user input and repeat
+    while True:
 
         usr_strip, usr_red, usr_green, usr_blue = collect_usr_input()
         sendRGB(serial_interface, usr_strip, (usr_red, usr_green, usr_blue))
 
 
 def sendRGB(ser_interface, strip_num, rgb):
-    #convert numbers to three-digit format
+    # convert numbers to three-digit format
     r, g, b = str(rgb[0]), str(rgb[1]), str(rgb[2])
 
     while len(r) < 3:
@@ -22,7 +22,6 @@ def sendRGB(ser_interface, strip_num, rgb):
         g = "0" + g
     while len(b) < 3:
         b = "0" + b
-
 
     if int(strip_num) == 1:
         ser_interface.write(("1RGB: " + r + " " + g + " " + b + "\n").encode())

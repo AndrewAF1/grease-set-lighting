@@ -7,9 +7,10 @@ import random as r
 import serial as s
 
 
-ser0 = s.Serial('/dev/ttyACM0', 9600)
-ser1 = s.Serial('/dev/ttyACM1', 9600)
-ser2 = s.Serial('/dev/ttyACM2', 9600)
+ser0 = s.Serial("/dev/ttyACM0", 9600)
+ser1 = s.Serial("/dev/ttyACM1", 9600)
+ser2 = s.Serial("/dev/ttyACM2", 9600)
+
 
 def hydromatic():
     input("it's automatic...")
@@ -29,6 +30,7 @@ def hydromatic():
     lc.flash(ser0, 2, cc.ORANGE, 1000, 200)
     lc.flash(ser1, 2, cc.ORANGE, 1000, 200)
 
+
 def magic_changes():
     input("c")
     u.sendRGB(ser0, 1, cc.RED)
@@ -46,6 +48,7 @@ def magic_changes():
     u.sendRGB(ser0, 1, cc.BLUE)
     u.sendRGB(ser1, 1, cc.BLUE)
 
+
 def beauty_school():
     input("start")
     u.sendRGB(ser0, 2, cc.PINK)
@@ -60,6 +63,7 @@ def beauty_school():
     u.sendRGB(ser0, 1, cc.PURPLE)
     u.sendRGB(ser1, 1, cc.PURPLE)
 
+
 def freddy():
     input("half")
     u.sendRGB(ser0, 1, cc.PURPLE)
@@ -68,6 +72,7 @@ def freddy():
     input("full")
     u.sendRGB(ser0, 2, cc.PURPLE)
     u.sendRGB(ser1, 2, cc.PURPLE)
+
 
 def hand_jive():
     input("go")
@@ -78,7 +83,6 @@ def hand_jive():
     lc.flash(ser0, 2, cc.LIME_GREEN, 1000, 1100)
     lc.flash(ser1, 1, cc.PURPLE, 1000, 1100)
     u.sendRGB(ser2, 2, cc.LIGHT_BLUE)
-
 
     input("repeat")
     lc.flash(ser0, 1, cc.RED, 1000, 1200)
@@ -104,6 +108,7 @@ def animated():
     sleep(1.2)
     u.sendRGB(ser0, 1, cc.PURPLE)
 
+
 def solid():
     input("go")
     u.sendRGB(ser0, 2, cc.RED)
@@ -114,6 +119,7 @@ def solid():
     sleep(1.1)
     u.sendRGB(ser0, 1, cc.RED)
     u.sendRGB(ser1, 1, cc.RED)
+
 
 def intermission():
     input("curtain")
